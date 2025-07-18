@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script type="module" src="index.js"></script>
+    </head>
+    <body>
+        <h1>aalket - Alin-Alli Public Docs</h1>
+        <section>
+            <h2>Word classification</h2>
+            <p>
+Words are divided into the following types:
+<ul>
+    <li>verb (v.)</li>
+    <li>noun (n.)</li>
+    <li>group noun (gn.)</li>
+    <li>quantity (q.)</li>
+    <li>adjective (ad.)</li>
+    <li>sentence marker (sm.)</li>
+    <li>context marker (cm.)</li>
+    <li>action word (aw.)</li>
+    <li>qualifier (ql.)</li>
+    <li>preposition (pp.)</li>
+    <li>interjection (ij.)</li>
+    <li>sentence joiner (sj.)</li>
+    <li>special (!)</li>
+</ul>
+            </p>
+            <p>
+Words are like functions: they may have <em>parameters</em>, which must come either before or after the word in order. A word's type and parameter specifications are collectively called the word's <em>signature</em>. A word and the sequence of words that form its parameters are collectively called the word's <em>phrase</em>, with the word being the phrase's <em>root word</em>. The root word in a valid phrase (in other words, a word that has proper arguments) is said to be <em>complete</em>.
+            </p>
+            <p>
+Here, a word's signature is denoted as the word's type abbreviation, followed by the parameters. (+n.) means a noun parameter that follows the word, while (-q.) means a quantity parameter that precedes the word. When a word takes two arguments on the same side, a duplicate of the word shall be inserted between the two arguments.
+            </p>
+            <p>
+While when describing individual words, classes like "noun" can refer to a noun with any signature, like (n.) (+n.), however when talking about word placement within phrases and sentences, word classes in wording like "a noun may precede ..." specifically means a complete phrase of that type, which itself takes no more parameters. For the sake of simplicity, a word with no parameters alone is counted as a complete phrase.
+            </p>
+            <p>
+Action words describe properties about an object. All adjectives may be used as action words, where they assert that the object has such a property. Action words that take two noun phrase arguments are called <em>relation words</em>, and the signature (aw.) (+n.) (+n.) may be abbreviated as (rw.).
+            </p>
+            <p>
+Additionally, an adjective or qualifier can be placed after a noun to form a new noun phrase. A preposition may be placed between two nouns to form a new noun phrase. Specifically, this means that the signatures (ql.) (+n.) and (pp.) are syntactically equivalent (since (ql.) (+n.) will form an qualifier phrase with a noun after it which then combines with the preceding noun), though they are semantically different: A preposition is always commutative, meaning A (pp.) B has the same meaning as B (pp.) A (except for possible emphasis), while such generally cannot be said for (n.) (ql.) (+n.) (n.) constructions.
+            </p>
+            <p>
+Example of phrase forming: <w-ref>banjo</w-ref> has the signature (q.) (+n.), while <w-ref>meda</w-ref> has the signature (n.), therefore the phrase [banjo meda] has the effective signature (q.), and can be used whenever a quantity is required.
+            </p>
+            <p>
+Another example: <w-ref>miku</w-ref> has the signature (aw.) (+n.) (+n.), and may form the phrase [miku meda miku meda] (note how miku is written again between the two nouns, since both nouns are to the right.)
+            </p>
+        </section>
+        <h2>Sentence formation</h2>
+        <p>
+A sentence always begins with a sentence marker, the most common one being <w-ref>a</w-ref>, which simply marks the sentence as being a statement. Zero or more context markers may follow, then the <em>body</em> of the sentence, which is either an action word phrase (in which case the body is called an <em>action body</em>), or a noun followed by a verb phrase (in which case the body is called an <em>SA body</em>), in which the noun is the subject and the verb phrase is the <em>action</em>(which contains a verb and possibly an object). Finally, zero or more context markers may end the sentence. They function identically to those placed immediately after the sentence marker.
+            </p>
+            <p>
+When writing action bodies consisting of relation words, the first occurence of the word may be omitted. Thus, "a miku ti miku kipo" may be shortened as "a ti miku kipo".
+            </p>
+            <p>
+<w-ref>i</w-ref> is a special sentence marker: A sentence that begins with i does not state anything on its own. Rather, the context markers are added to the next sentence. The body of such sentence or a subsequent sentence may be incomplete; the body of this sentence is merged into the next one, as follows:
+<ul>
+    <li>If one of the bodies has a (possibly incomplete) action word, the phrases that form the other body will be appended to the arguments of the action word, after any existing arguments, forming an action body.</li>
+    <li>If one of the bodies starts with a (possibly incomplete) verb, the other body must begin with a noun phrase which will be the subject, and any following phrases will be appended to the arguments of the verb, forming an SA body.</li>
+    <li>If one of the bodies start with a noun phrase and a (possibly incomplete) verb, the noun phrase is the subject, and the phrases that form the other body will be appended to the arguments of the verb, forming an SA body.</li>
+</ul>
+            </p>
+            <p>
+action body example (hover to see definitions: <w-ref>ti</w-ref>, <w-ref>miku</w-ref>, <w-ref>kipo</w-ref>):
+<ul>
+    <li>i kipo a miku ti</li>
+    <li>i ti miku a kipo</li>
+</ul>
+These are all equivalent to "a ti miku kipo". Due to the similarities in form of action bodies with an omitted relation word, "i miku kipo a ti" is a non-standard but acceptable way of writing the same sentence.
+            </p>
+            <p>
+SA body example (hover to see definitions: <w-ref>asen</w-ref>, <w-ref>frio</w-ref>):
+<ul>
+    <li>i asen a ti frio</li>
+    <li>i ti asen a frio</li>
+    <li>i asen frio a ti</li>
+    <li>i ti frio a asen</li>
+    <li>i frio a ti asen</li>
+    <li>i ti a asen frio</li>
+</ul>
+These are all equivalent to "a ti asen frio".
+            </p>
+        </section>
+    </body>
+</html>

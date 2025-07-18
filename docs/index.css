@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    font-size: 13pt;
+}
+w-ref{
+    text-decoration: dotted underline;
+    cursor: help;
+}
