@@ -7,7 +7,12 @@ const WDB: Record<string,string> = {
     miku: "(rw.) receive (information, knowledge)",
     kipo: "(n.) [0] image, view, scenery",
     asen: "(v.) (+n.) go within (something), enter (something)",
-    frio: "(n.) [+] building"
+    frio: "(n.) [+] building",
+    imo: "(gn.) (+n.) the group containing (all of)",
+    semo: "(n.) (+gn.) all of the group's elements",
+    amun: "(n.) [0] you and me",
+    dide: "(ad.) powerful",
+    nu: "(n.) [0] you"
 };
 class WordRef extends HTMLElement{
     constructor(){
